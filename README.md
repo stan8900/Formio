@@ -11,6 +11,10 @@ npm run dev
 
 Open `http://localhost:3000`. Production validation is `npm run build`.
 
+## GitHub Pages
+
+Pushes to `main` deploy a static build to `https://stan8900.github.io/Formio/` through `.github/workflows/deploy-pages.yml`. The workflow is configured for the repository project path and does not require a separate hosting provider.
+
 ## Content and Sanity
 
 The local fallback lives in `lib/content.ts`; it is the single map for image filenames, captions, alt text, photographer, source and licence. The optional Sanity landmark schema is in `sanity/schemaTypes/landmark.ts` and supports editable covers, captions, story text and the “What to look for” list.

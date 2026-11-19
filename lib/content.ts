@@ -8,15 +8,19 @@ export type Landmark = {
   image: ImageCredit; lookFor: { title: string; text: string }[]; related: string;
 };
 
+// GitHub Pages hosts this project at /Formio; local development remains at the root.
+const assetPath = process.env.GITHUB_ACTIONS === "true" ? "/Formio" : "";
+const imagePath = (name: string) => `${assetPath}/images/${name}`;
+
 // Single image map: replace src / credit metadata here when an editor supplies licensed assets.
 export const images = {
-  hero: { src: "/images/samarkand-hero.jpeg", alt: "Registan Square at sunset, its central portal reflected in water", caption: "Registan at sunset.", photographer: "Unknown", source: "Local project asset: Samarkand.jpeg", licence: "Stan Jurabekov" },
-  courtyard: { src: "/images/registan-courtyard.jpeg", alt: "Tiled facade and courtyard at Registan Square", caption: "The rhythm of the Registan courtyard.", photographer: "Unknown", source: "Local project asset: Registan Square in Samarkand Uzbekistan Travel Guide.jpeg", licence: "Stan Jurabekov" },
-  minaret: { src: "/images/registan-minaret.jpeg", alt: "A turquoise tiled minaret detail in Samarkand", caption: "Minaret detail, Samarkand.", photographer: "Unknown", source: "Local project asset: Samarkand, Uzbekistan.jpeg", licence: "Stan Jurabekov" },
-  gur: { src: "/images/gur-e-amir-provisional.jpeg", alt: "Golden ornamental interior, provisionally associated with Gur-e-Amir", caption: "Provisional visual match; attribution to Gur-e-Amir requires confirmation.", photographer: "Unknown", source: "Local project asset: Golden Muqarnas of Samarkand.jpeg", licence: "Stan Jurabekov" },
-  bibi: { src: "/images/bibi-khanym-provisional.jpeg", alt: "Samarkand architectural view, provisionally associated with Bibi-Khanym", caption: "Provisional visual match; attribution to Bibi-Khanym requires confirmation.", photographer: "Unknown", source: "Local project asset: _ (1).jpeg", licence: "Stan Jurabekov" },
-  mood: { src: "/images/dreamslight-mood.jpeg", alt: "Atmospheric Samarkand architecture at dusk", caption: "Mood reference only — not assigned to a landmark.", photographer: "Unknown", source: "Local project asset: The Timeless Beauty of Samarkand _ Dreamslight Editorial.jpeg", licence: "Stan Jurabekov" },
-  khiva: { src: "/images/khiva-reserved.jpeg", alt: "Khiva architectural image", caption: "Reserved for Khiva; not used in this Samarkand edit.", photographer: "Unknown", source: "Local project asset: _.jpeg", licence: "Stan Jurabekov" }
+  hero: { src: imagePath("samarkand-hero.jpeg"), alt: "Registan Square at sunset, its central portal reflected in water", caption: "Registan at sunset.", photographer: "Unknown", source: "Local project asset: Samarkand.jpeg", licence: "Stan Jurabekov" },
+  courtyard: { src: imagePath("registan-courtyard.jpeg"), alt: "Tiled facade and courtyard at Registan Square", caption: "The rhythm of the Registan courtyard.", photographer: "Unknown", source: "Local project asset: Registan Square in Samarkand Uzbekistan Travel Guide.jpeg", licence: "Stan Jurabekov" },
+  minaret: { src: imagePath("registan-minaret.jpeg"), alt: "A turquoise tiled minaret detail in Samarkand", caption: "Minaret detail, Samarkand.", photographer: "Unknown", source: "Local project asset: Samarkand, Uzbekistan.jpeg", licence: "Stan Jurabekov" },
+  gur: { src: imagePath("gur-e-amir-provisional.jpeg"), alt: "Golden ornamental interior, provisionally associated with Gur-e-Amir", caption: "Provisional visual match; attribution to Gur-e-Amir requires confirmation.", photographer: "Unknown", source: "Local project asset: Golden Muqarnas of Samarkand.jpeg", licence: "Stan Jurabekov" },
+  bibi: { src: imagePath("bibi-khanym-provisional.jpeg"), alt: "Samarkand architectural view, provisionally associated with Bibi-Khanym", caption: "Provisional visual match; attribution to Bibi-Khanym requires confirmation.", photographer: "Unknown", source: "Local project asset: _ (1).jpeg", licence: "Stan Jurabekov" },
+  mood: { src: imagePath("dreamslight-mood.jpeg"), alt: "Atmospheric Samarkand architecture at dusk", caption: "Mood reference only — not assigned to a landmark.", photographer: "Unknown", source: "Local project asset: The Timeless Beauty of Samarkand _ Dreamslight Editorial.jpeg", licence: "Stan Jurabekov" },
+  khiva: { src: imagePath("khiva-reserved.jpeg"), alt: "Khiva architectural image", caption: "Reserved for Khiva; not used in this Samarkand edit.", photographer: "Unknown", source: "Local project asset: _.jpeg", licence: "Stan Jurabekov" }
 } as const;
 
 export const landmarks: Landmark[] = [
